@@ -62,10 +62,10 @@ $$
 \begin{align*}
  X \gg n   &\quad\; \text{Logical right shift $X$ by $n$ bits} \\
  X \ggg n  & \quad\; \text{Circular right shift $X$ by $n$ bits} \\
- \sigma_0(X,n) & = (X \ggg 7) \oplus (X \ggg 18) \oplus (X \gg 3) \\
- \sigma_1(X,n) & = (X \ggg 17) \oplus (X \ggg 19) \oplus (X \gg 10) \\
- \Sigma_0(X,n) & = (X \ggg 2) \oplus (X \ggg 13) \oplus (X \ggg 22) \\
- \Sigma_1(X,n) & = (X \ggg 6) \oplus (X \ggg 11) \oplus (X \ggg 25) \\
+ \sigma\_0(X,n) & = (X \ggg 7) \oplus (X \ggg 18) \oplus (X \gg 3) \\
+ \sigma\_1(X,n) & = (X \ggg 17) \oplus (X \ggg 19) \oplus (X \gg 10) \\
+ \Sigma\_0(X,n) & = (X \ggg 2) \oplus (X \ggg 13) \oplus (X \ggg 22) \\
+ \Sigma\_1(X,n) & = (X \ggg 6) \oplus (X \ggg 11) \oplus (X \ggg 25) \\
  Ch(X,Y,Z)    & = (X \land Y) \oplus (\overline{X} \land Z) \\
  Maj(X,Y,Z)   & = (X \land Y) \oplus (X \land Z) \oplus (Y \land Z)
 \end{align*}
