@@ -58,35 +58,43 @@ hex = "0.4"
 SHA-256 pads the message to a multiple of 512 bit, before processing each 512-bit block using 64 "rounds".  Each round updates 8 working variables of size 32-bits each. Any bitwise additions are done modulo $2^{32}$.
 
 #### Initialise Helper Functions:
-$$
+
+```math
 \begin{align*}
  X \gg n   &\quad\; \text{Logical right shift $X$ by $n$ bits} \\
  X \ggg n  & \quad\; \text{Circular right shift $X$ by $n$ bits} \\
- \sigma\_0(X,n) & = (X \ggg 7) \oplus (X \ggg 18) \oplus (X \gg 3) \\
- \sigma\_1(X,n) & = (X \ggg 17) \oplus (X \ggg 19) \oplus (X \gg 10) \\
- \Sigma\_0(X,n) & = (X \ggg 2) \oplus (X \ggg 13) \oplus (X \ggg 22) \\
- \Sigma\_1(X,n) & = (X \ggg 6) \oplus (X \ggg 11) \oplus (X \ggg 25) \\
+ \sigma_0(X,n) & = (X \ggg 7) \oplus (X \ggg 18) \oplus (X \gg 3) \\
+ \sigma_1(X,n) & = (X \ggg 17) \oplus (X \ggg 19) \oplus (X \gg 10) \\
+ \Sigma_0(X,n) & = (X \ggg 2) \oplus (X \ggg 13) \oplus (X \ggg 22) \\
+ \Sigma_1(X,n) & = (X \ggg 6) \oplus (X \ggg 11) \oplus (X \ggg 25) \\
  Ch(X,Y,Z)    & = (X \land Y) \oplus (\overline{X} \land Z) \\
  Maj(X,Y,Z)   & = (X \land Y) \oplus (X \land Z) \oplus (Y \land Z)
 \end{align*}
-$$
+```
 
 #### Initialise Variables and Constants:
 
 1. Initialise the first hash values $H_0, H_1, \ldots, H_7$ to the following constants, which are the first 32 bits of the fractional parts of the square roots of the first 8 primes:
-$$\begin{align*}
+
+```math
+\begin{align*}
    H_0 & = \texttt{0x6a09e667} \\
    H_1 & = \texttt{0xbb67ae85} \\
    &\ldots \\
    H_7 & = \texttt{0x5be0cd19}
-\end{align*}$$
+\end{align*}
+```
+
 2. Initialise the round constants $K_0, K_1, \ldots, K_{63}$ to the following constants, which are the first 32 bits of the fractional parts of the cube roots of the first 64 primes:
-$$\begin{align*}
+
+```math
+\begin{align*}
    K_0 & = \texttt{0x428a2f98} \\
    K_1 & = \texttt{0x71374491} \\
    &\ldots \\
    K_{63} & = \texttt{0xc67178f2}
-\end{align*}$$
+\end{align*}
+```
 
 #### Process the Message:
 
