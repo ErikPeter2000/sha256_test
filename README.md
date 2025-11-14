@@ -99,10 +99,9 @@ SHA-256 pads the message to a multiple of 512 bit, before processing each 512-bi
     1. Append a bit 1 to the message.
     2. Pad the message with $k$ zeros such that when padded, the new message will be 64 bits less than a multiple of 256.
 
-```math
-k = 512 - (L + 65) \bmod 512
-```
-
+        ```math
+        k = 512 - (L + 65) \bmod 512
+        ```
     3. Append the 64-bit representation of $L$ to the message.
 2. Parse the padded message into $N$ 512-bit blocks.
 3. For each block, perform the following:
